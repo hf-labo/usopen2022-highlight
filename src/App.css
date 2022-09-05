@@ -1,3 +1,20 @@
 .App {
-  margin: 15px;
+  margin: 0px;
+}
+
+.battleCard {
+  margin: 10px auto;
+}
+
+.thumbnail {
+  width: 100%;
+  max-width: 320px;
+}
+
+.MuiTabPanel-root {
+  padding: 24px 0;
+}
+
+.MuiPaper-root {
+  width: 320px;
 }

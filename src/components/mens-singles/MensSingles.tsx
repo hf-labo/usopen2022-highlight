@@ -1,41 +1,39 @@
 import React from 'react'
-import TabContext from '@mui/lab/TabContext'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
+import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-import RD1 from './RD1'
-import RD2 from './RD2'
-import RD3 from './RD3'
-import RD4 from './RD4'
-import RDQF from './RDQF'
-import RDSF from './RDSF'
-import RDF from './RDF'
+import Grid from '@mui/material/Grid'
+import BattleCard from '../BattleCard'
+import Data1 from './RD1.json'
+import Data2 from './RD2.json'
+import Data3 from './RD3.json'
 
 const MensSingles: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
+  const [data, setData] = React.useState<any>(Data1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue)
+    setData([Data1, Data2, Data3, {"data": []}, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
   }
   return (
     <div className="mensSingles">
-      <TabContext value={tab}>
-        <TabList onChange={handleChangeTab}>
-          <Tab label="RD 1" value='0' />
-          <Tab label="RD 2" value='1' />
-          <Tab label="RD 3" value='2' />
-          <Tab label="RD 4" value='3' />
-          <Tab label="RD QF" value='4' />
-          <Tab label="RD SF" value='5' />
-          <Tab label="RD F" value='6' />
-        </TabList>
-        <TabPanel value="0"><RD1 /></TabPanel>
-        <TabPanel value="1"><RD2 /></TabPanel>
-        <TabPanel value="2"><RD3 /></TabPanel>
-        <TabPanel value="3"><RD4 /></TabPanel>
-        <TabPanel value="4"><RDQF /></TabPanel>
-        <TabPanel value="5"><RDSF /></TabPanel>
-        <TabPanel value="6"><RDF /></TabPanel>
-      </TabContext>
+      <Tabs value={tab} onChange={handleChangeTab} variant="scrollable" scrollButtons="auto">
+        <Tab value='0' label="RD 1" />
+        <Tab value='1' label="RD 2" />
+        <Tab value='2' label="RD 3" />
+        <Tab value='3' label="RD 4" />
+        <Tab value='4' label="RD QF" />
+        <Tab value='5' label="RD SF" />
+        <Tab value='6' label="RD F" />
+      </Tabs>
+      <Grid container>
+        {
+          data.data.map((e: any) => {
+            return (
+              <BattleCard player1={e.player1} player2={e.player2} hightlight={e.highlight} extendedHighlight={e.extendedHighlight} fullMatch={e.fullMatch} />
+            )
+          })
+        }
+      </Grid>
     </div>
   )
 }
