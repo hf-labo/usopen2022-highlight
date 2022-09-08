@@ -6,13 +6,14 @@ import BattleCard from '../BattleCard'
 import Data1 from './RD1.json'
 import Data2 from './RD2.json'
 import Data3 from './RD3.json'
+import Data4 from './RD4.json'
 
 const WomensSingles: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
   const [data, setData] = React.useState<any>(Data1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue)
-    setData([Data1, Data2, Data3, {"data": []}, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
+    setData([Data1, Data2, Data3, Data4, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
   }
   return (
     <div className="womensSingles">
