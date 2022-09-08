@@ -7,6 +7,7 @@ import MensDoubles from './components/mens-doubles/MensDoubles'
 import WomensDoubles from './components/womens-doubles/WomensDoubles'
 import MixedDoubles from './components/mixed-doubles/MixedDoubles'
 import './App.css'
+import HeaderImage from './assets/image/usopen-header-logo.png'
 
 const App: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
@@ -15,6 +16,10 @@ const App: React.FC = () => {
   }
   return (
     <div className="App">
+      <div className="header">
+        <img src={HeaderImage} />
+        2022 Highlight
+      </div>
       <Tabs value={tab} onChange={handleChangeTab} variant="scrollable" scrollButtons="auto">
         <Tab value='0' label="Men's Singles" />
         <Tab value='1' label="Women's Singles" />
