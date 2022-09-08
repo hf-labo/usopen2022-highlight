@@ -3,13 +3,14 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Grid from '@mui/material/Grid'
 import BattleCard from '../BattleCard'
+import Data1 from './RD1.json'
 
 const MensDoubles: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
-  const [data, setData] = React.useState<any>({"data": []})
+  const [data, setData] = React.useState<any>(Data1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue)
-    setData([{"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
+    setData([Data1, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
   }
   return (
     <div className="mensDoubles">
