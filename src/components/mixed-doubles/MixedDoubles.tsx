@@ -4,22 +4,26 @@ import Tab from '@mui/material/Tab'
 import Grid from '@mui/material/Grid'
 import BattleCard from '../BattleCard'
 import Data1 from './RD1.json'
+import Data2 from './RD2.json'
+import DataQF from './RDQF.json'
+import DataSF from './RDSF.json'
+import DataF from './RDF.json'
 
 const MixedDoubles: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
   const [data, setData] = React.useState<any>(Data1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue)
-    setData([Data1, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
+    setData([Data1, Data2, DataQF, DataSF, DataF][parseInt(newValue)])
   }
   return (
     <div className="mixedDoubles">
       <Tabs value={tab} onChange={handleChangeTab} variant="scrollable" scrollButtons="auto">
         <Tab value='0' label="RD 1" />
         <Tab value='1' label="RD 2" />
-        <Tab value='3' label="RD QF" />
-        <Tab value='4' label="RD SF" />
-        <Tab value='5' label="RD F" />
+        <Tab value='2' label="RD QF" />
+        <Tab value='3' label="RD SF" />
+        <Tab value='4' label="RD F" />
       </Tabs>
       <Grid container>
         {

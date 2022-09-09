@@ -19,7 +19,7 @@ const BattleCard: React.FC<Props> = ({player1, player2, hightlight = '', extende
       const url = 'https://img.youtube.com/vi/' + id +'/sddefault.jpg'
       return <CardMedia className="thumbnail" component="img" image={url} />
     } else {
-      return <div />
+      return <div className="dmy-thumbnail">No Highlight</div>
     }
   }
   const showHightlight = () => {

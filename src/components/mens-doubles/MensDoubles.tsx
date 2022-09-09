@@ -4,13 +4,18 @@ import Tab from '@mui/material/Tab'
 import Grid from '@mui/material/Grid'
 import BattleCard from '../BattleCard'
 import Data1 from './RD1.json'
+import Data2 from './RD2.json'
+import Data3 from './RD3.json'
+import DataQF from './RDQF.json'
+import DataSF from './RDSF.json'
+import DataF from './RDF.json'
 
 const MensDoubles: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
   const [data, setData] = React.useState<any>(Data1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue)
-    setData([Data1, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}, {"data": []}][parseInt(newValue)])
+    setData([Data1, Data2, Data3, DataQF, DataSF, DataF][parseInt(newValue)])
   }
   return (
     <div className="mensDoubles">
