@@ -9,13 +9,14 @@ import Data3 from './RD3.json'
 import Data4 from './RD4.json'
 import DataQF from './RDQF.json'
 import DataSF from './RDSF.json'
+import DataF from './RDF.json'
 
 const MensSingles: React.FC = () => {
   const [tab, setTab] = React.useState<string>('0')
   const [data, setData] = React.useState<any>(Data1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
     setTab(newValue)
-    setData([Data1, Data2, Data3, Data4, DataQF, DataSF, {"data": []}][parseInt(newValue)])
+    setData([Data1, Data2, Data3, Data4, DataQF, DataSF, DataF][parseInt(newValue)])
   }
   return (
     <div className="mensSingles">
